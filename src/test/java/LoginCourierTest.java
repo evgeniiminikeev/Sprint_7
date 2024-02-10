@@ -88,28 +88,13 @@ public class LoginCourierTest {
         checkFailedAuthorization(null, password, 400, "Недостаточно данных для входа");
     }
 
-    /* Тест не работает - проблемы с самим ресурсом. Уточнить у наставника
     @Test
-    @DisplayName("Запрос id без пароля")
-    @Description("Ожидаемый результат \"Недостаточно данных для входа\"")
+    @DisplayName("Authorization without password")
+    @Description("Authorization without login results in error 400")
     public void requestIdWithoutPasswordShouldReturnError400() {
-        String result = given()
-                .baseUri(BASE_URI)
-                .contentType(ContentType.JSON)
-                .body("{\n" +
-                        "    \"login\": \"" + login + "\"\n" +
-                        "}")
-                .when()
-                .log().all()
-                .post("/api/v1/courier/login")
-                .then()
-                .statusCode(400)
-                .log().all()
-                .extract()
-                .path("message");
-        Assert.assertEquals("Недостаточно данных для входа", result);
+        checkFailedAuthorization(login, null, 400, "Недостаточно данных для входа");
     }
-     */
+
 
     @After
     public void tearDown(){

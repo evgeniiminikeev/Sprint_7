@@ -23,7 +23,7 @@ public class TakeOrderListTest {
     }
     @Step("Checking get orders")
     public void checkGetOrders(Response response) {
-        response.then().statusCode(200).assertThat().body("orders",notNullValue());
+        response.then().log().all().statusCode(200).assertThat().body("orders[0].id",notNullValue());
     }
 
     @Test

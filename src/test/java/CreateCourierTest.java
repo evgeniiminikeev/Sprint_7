@@ -18,10 +18,8 @@ public class CreateCourierTest {
     String login = generator.login();
     String password = generator.password();
     String firstName = generator.firstName();
-
     @Before
     public void setUp() {
-
     }
 
     @Step("Creating a courier")
